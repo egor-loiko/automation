@@ -1,24 +1,46 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class TriangleMain {
     public static void main(String[] args) {
 
-        int a = 0;
-        int b = 0;
-        int c = 0;
+        BufferedReader br = null;
 
         Triangle triangle = new Triangle();
 
-        System.out.println("Enter the first side");
-        a = triangle.getValue();
-        System.out.println("The first side = " + a);
+        try {
+            br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Enter the second side: ");
-        b = triangle.getValue();
-        System.out.println("The second side = " + b);
+            System.out.println("Enter the first side");
+            String a = br.readLine();
+            System.out.println("The first side = " + a);
 
-        System.out.println("Enter the third side: ");
-        c = triangle.getValue();
-        System.out.println("The third side = " + c);
+            System.out.println("Enter the second side: ");
+            String b = br.readLine();
+            System.out.println("The second side = " + b);
 
-        triangle.triangleType(a, b, c);
+            System.out.println("Enter the third side: ");
+            String c = br.readLine();
+            System.out.println("The third side = " + c);
+
+            System.out.println(triangle.setData(a, b, c).triangleType().getTriangleMessage());
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+
+
     }
 }
