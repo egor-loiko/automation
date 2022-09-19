@@ -1,13 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class TriangleMain {
     public static void main(String[] args) {
 
         BufferedReader br = null;
-
         Triangle triangle = new Triangle();
 
         try {
@@ -26,8 +24,6 @@ public class TriangleMain {
             System.out.println("The third side = " + c);
 
             System.out.println(triangle.setData(a, b, c).triangleType().getTriangleMessage());
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
